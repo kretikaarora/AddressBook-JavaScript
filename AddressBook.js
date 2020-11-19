@@ -146,6 +146,17 @@ try
     contactDetailsArray.splice(index,1);
     console.log("contacts after being deleted");
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+
+    //uc6 Reduce function to find number of contacts
+    var totalContacts=0;
+    function findTotalContacts(contactDetailsArray)
+    {
+       if(contactDetailsArray!=null)
+       totalContacts++;
+       return totalContacts;
+    }
+    contactDetailsArray.reduce(findTotalContacts,1);
+    console.log("Total number of contacts in contactdetails array  : "+totalContacts);
  }
 catch(e)
  {
