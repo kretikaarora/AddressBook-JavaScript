@@ -176,10 +176,10 @@ try
     //by city
     console.log("");
     console.log("Contact by City Paris")
-    function ContactByCity(contactDetailsArray)
+    function ContactByCity(contactDetails)
     {
-       if(contactDetailsArray.city=="Paris") 
-       console.log(contactDetailsArray.toString());
+       if(contactDetails.city=="Paris") 
+       console.log(contactDetails.toString());
         
     }
     contactDetailsArray.filter(ContactByCity);
@@ -188,6 +188,26 @@ try
     console.log("Contact By State Haryana")
     let citycontact =contactDetailsArray.filter((contact)=>contact.state.includes("Haryana"));
     console.log(citycontact.toString());
+
+    //uc9 Contacts by city or State using map  
+    //by state
+    function CityMap(contact)
+    {
+        return contact.city + " -> " + contact.firstName + "  " + contact.lastName;
+    }
+    let addressCityMap= contactDetailsArray.map(CityMap);
+    console.log(addressCityMap);
+   
+    //by city
+    function StateMap(contactDetails)
+    {
+        return contactDetails.state + " -> " + contactDetails.firstName + "  " + contactDetails.lastName;
+    }
+    let addressStateMap= contactDetailsArray.map(StateMap);
+    console.log(addressStateMap);
+
+    
+
  }
 catch(e)
  {
