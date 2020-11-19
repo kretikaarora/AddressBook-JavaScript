@@ -116,7 +116,7 @@ class ContactDetails
     //defining to string method
     toString()
     {
-        return "first Name: "+this.firstName+", last Name: "+this.lastName+"\nAddress: "+ this.address+", City: "+ this.city+", State: "+this.state+"Zip: "+this.zip+", \nPhoneNumber: "+this.phoneNumber+", email: "+this.email; 
+        return "first Name: "+this.firstName+", last Name: "+this.lastName+"\nAddress: "+ this.address+", City: "+ this.city+", State: "+this.state+"  Zip: "+this.zip+", \nPhoneNumber: "+this.phoneNumber+", email: "+this.email; 
     }
 }
 //creating an instance and giving contact details
@@ -171,6 +171,23 @@ try
     console.log("not a duplicate entry");
     else
     console.log("duplicate entry");
+
+    //uc8 search person using city or state
+    //by city
+    console.log("");
+    console.log("Contact by City Paris")
+    function ContactByCity(contactDetailsArray)
+    {
+       if(contactDetailsArray.city=="Paris") 
+       console.log(contactDetailsArray.toString());
+        
+    }
+    contactDetailsArray.filter(ContactByCity);
+
+    //by state
+    console.log("Contact By State Haryana")
+    let citycontact =contactDetailsArray.filter((contact)=>contact.state.includes("Haryana"));
+    console.log(citycontact.toString());
  }
 catch(e)
  {
