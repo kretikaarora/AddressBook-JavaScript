@@ -100,7 +100,6 @@ class ContactDetails
 
        let emailRegex=RegExp("^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$");
        if(emailRegex.test(email))
-
         this._email= email;
        else
         throw "Invalid email";
@@ -115,14 +114,25 @@ class ContactDetails
 //creating an instance and giving contact details
 try
  {
+     //adding  contact details to array 
     let contactDetails=new ContactDetails("Kretika","Arora","street","Faridabad","Haryana","121 001","91 9650925666","kretika@gmail.com");
-    console.log(contactDetails.toString());
     let contactDetailsArray = new Array();
     contactDetailsArray.push(contactDetails);
     contactDetailsArray.push(new ContactDetails("Roma","Salvador","nearhighway","Mumbai","Maharashtra","128 755","91 8587087642","roma@gmail.com"));
     contactDetailsArray.push(new ContactDetails("Daisy","Alava","fourstreet","Paris","France","871 258","87 6587321451","daisy@gmail.com"));
     contactDetailsArray.push(new ContactDetails("Troy","Tom","alaska","Zurich","Switzerland","128 213","91 8966541252","troy@gmail.com"));
+    //printing array before updating
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+
+    //finding index using name
+    let check = contactDetailsArray.findIndex(contact=>contact.firstName=="Roma");
+    //updating the contact detail
+    contactDetailsArray[check].zip="121 003";
+
+    //displaying contacts after being updated
+    console.log("contacts after being updated");
+    contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+
  }
 catch(e)
  {
