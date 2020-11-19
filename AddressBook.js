@@ -172,25 +172,39 @@ try
     else
     console.log("duplicate entry");
 
-    //uc8 search person using city or state
+    //uc8 search person using city or state & uc10 for counting
     //by city
+    var numberOfCity=0;
+    var numberOfState=0;
     console.log("");
     console.log("Contact by City Paris")
     function ContactByCity(contactDetails)
     {
        if(contactDetails.city=="Paris") 
-       console.log(contactDetails.toString());
-        
+       {
+        console.log(contactDetails.toString());
+        numberOfCity++;
+       }       
     }
     contactDetailsArray.filter(ContactByCity);
+    console.log("contacts by city "+numberOfCity);
 
     //by state
-    console.log("Contact By State Haryana")
-    let citycontact =contactDetailsArray.filter((contact)=>contact.state.includes("Haryana"));
-    console.log(citycontact.toString());
-
+    function ContactByState(contact)
+    {
+       if(contact.state=="Haryana") 
+       {
+        console.log(contact.toString());
+        numberOfState++;
+       }       
+    }
+    console.log("Contact By State ")
+    contactDetailsArray.filter(ContactByState);
+    console.log("contacts by state "+numberOfState);
+    
     //uc9 Contacts by city or State using map  
     //by state
+    console.log("contact details by city or state using map");
     function CityMap(contact)
     {
         return contact.city + " -> " + contact.firstName + "  " + contact.lastName;
@@ -205,8 +219,6 @@ try
     }
     let addressStateMap= contactDetailsArray.map(StateMap);
     console.log(addressStateMap);
-
-    
 
  }
 catch(e)
