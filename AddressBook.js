@@ -64,7 +64,7 @@ class ContactDetails
     get state(){return this._state;}
     set state(state)
     {
-        let stateRegex = RegExp("^[A-Za-z]{4,}$");
+        let stateRegex = RegExp("^[A-Za-z0-9]{4,}$");
         if(stateRegex.test(state))
             this._state= state;
         else
@@ -97,10 +97,10 @@ class ContactDetails
     get email(){return this._email;}
     set email(email)
     {
-        let emailRegex=RegExp("^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$");
-        if(emailRegex.test(emailRegex))
+       let emailRegex=RegExp("^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$");
+       if(emailRegex.test(emailRegex))
         this._email= email;
-        else
+       else
         throw "Invalid email";
     }
 
@@ -112,11 +112,17 @@ class ContactDetails
 }
 //creating an instance and giving contact details
 try
-{
+ {
     let contactDetails=new ContactDetails("Kretika","Arora","street","Faridabad","Haryana","121 001","91 9650925666","kretika@gmail.com");
     console.log(contactDetails.toString());
-}
+    let contactDetailsArray = new Array();
+    contactDetailsArray.push(contactDetails);
+    contactDetailsArray.push(new ContactDetails("Roma","Salvador","nearhighway","Mumbai","Maharashtra","128 755","91 8587087642","roma@gmail.com"));
+    contactDetailsArray.push(new ContactDetails("Daisy","Alava","fourstreet","Paris","France","871 258","87 6587321451","daisy@gmail.com"));
+    contactDetailsArray.push(new ContactDetails("Troy","Tom","alaska","Zurich","Switzerland","128 213","91 8966541252","troy@gmail.com"));
+    contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+ }
 catch(e)
-{
-    console.log(e);
-}
+ {
+   console.log(e);
+ }
