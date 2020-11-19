@@ -82,7 +82,7 @@ class ContactDetails
     get zip(){return this._zip;}
     set zip(zip)
     {
-        let zipRegex = RegExp("^[1-9]{3}[ ]?[0-9]{3}$");
+        let zipRegex = RegExp("^[1-9]{3}[ ]*[0-9]{3}$");
         if(zipRegex.test(zip))
             this._zip= zip;
         else
@@ -123,30 +123,33 @@ class ContactDetails
 try
  {
      // uc3 adding  contact details to array 
-    let contactDetails=new ContactDetails("Kretika","Arora","street","Faridabad","Haryana","121 001","91 9650925666","kretika@gmail.com");
+    let contactDetails=new ContactDetails("Kretika","Arora","street","Faridabad","Haryana",121001,"91 9650925666","kretika@gmail.com");
     let contactDetailsArray = new Array();
     contactDetailsArray.push(contactDetails);
-    contactDetailsArray.push(new ContactDetails("Roma","Salvador","nearhighway","Mumbai","Maharashtra","128 755","91 8587087642","roma@gmail.com"));
-    contactDetailsArray.push(new ContactDetails("Daisy","Alava","fourstreet","Paris","France","871 258","87 6587321451","daisy@gmail.com"));
-    contactDetailsArray.push(new ContactDetails("Troy","Tom","alaska","Zurich","Switzerland","128 213","91 8966541252","troy@gmail.com"));
+    contactDetailsArray.push(new ContactDetails("Roma","Salvador","nearhighway","Mumbai","Maharashtra",128755,"91 8587087642","roma@gmail.com"));
+    contactDetailsArray.push(new ContactDetails("Daisy","Alava","fourstreet","Paris","France",871258,"87 6587321451","daisy@gmail.com"));
+    contactDetailsArray.push(new ContactDetails("Troy","Tom","alaska","Zurich","Switzerland",128213,"91 8966541252","troy@gmail.com"));
     //printing array before updating
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
 
     // uc4 finding index using name
+    console.log("****************************************************************");
     let index = contactDetailsArray.findIndex(contact=>contact.firstName=="Roma");
     //updating the contact detail
-    contactDetailsArray[index].zip="121 003";
+    contactDetailsArray[index].zip="121003";
 
     //displaying contacts after being updated
     console.log("contacts after being updated");
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
 
     //uc5 Removes an element from an array at specified index
+    console.log("******************************************************************");
     contactDetailsArray.splice(index,1);
     console.log("contacts after being deleted");
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
 
     //uc6 Reduce function to find number of contacts
+    console.log("*******************************************************************");
     var totalContacts=0;
     function FindTotalContacts(contactDetailsArray)
     {
@@ -221,12 +224,43 @@ try
     console.log(addressStateMap);
 
     //uc11 sorting by name and printing the array
-    console.log("Sorting by firstName");
-    for (let contactDetails in contactDetailsArray)
+    function SortByName()
     {
-        contactDetailsArray.sort(contactDetails.firstName);
+        for (let contactDetails in contactDetailsArray)
+        {
+            contactDetailsArray.sort(contactDetails.firstName);
+        }
+        contactDetailsArray.forEach((contact)=>console.log(contact.toString()));   
     }
-    contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+    function SortByCity()
+    {   for (let contactDetails in contactDetailsArray)
+        {
+            contactDetailsArray.sort(contactDetails.city);
+        }
+        contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+    }
+    function SortByState()
+    {   for (let contactDetails in contactDetailsArray)
+        {
+            contactDetailsArray.sort(contactDetails.state);
+        }
+        contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+    }
+    function SortByZip()
+    {   for (let contactDetails in contactDetailsArray)
+        {
+            contactDetailsArray.sort(contactDetails.zip);
+        }
+        contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
+    }
+    console.log("Sorting by firstName");
+    SortByName();
+    console.log("Sort By City")
+    SortByCity();
+    console.log("Sort By State")
+    SortByState();
+    console.log("Sort By Zip")
+    SortByZip();
  }
 catch(e)
  {
