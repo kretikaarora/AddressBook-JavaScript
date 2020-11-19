@@ -220,6 +220,13 @@ try
     let addressStateMap= contactDetailsArray.map(StateMap);
     console.log(addressStateMap);
 
+    //uc11 sorting by name and printing the array
+    console.log("Sorting by firstName");
+    for (let contactDetails in contactDetailsArray)
+    {
+        contactDetailsArray.sort(contactDetails.firstName);
+    }
+    contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
  }
 catch(e)
  {
