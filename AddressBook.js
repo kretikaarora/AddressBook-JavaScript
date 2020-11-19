@@ -1,3 +1,4 @@
+//uc1 creating a class
 class ContactDetails
 {
     //constructor
@@ -13,7 +14,8 @@ class ContactDetails
         this.email=params[7];      
     }
 
-    //get and set for firstname 
+    //uc2 validating all the details
+    // get and set for firstname 
     //first letter should be capital and min 3 letters
     get firstName(){return this._firstName;}
     set firstName(firstName)
@@ -27,6 +29,7 @@ class ContactDetails
     }
 
     //get and set for lastname
+    //first letter should be capital and min 3 letters
     get lastName(){return this._lastName;}
     set lastName(lastName)
     {
@@ -39,6 +42,7 @@ class ContactDetails
     }
 
     //get and set for address
+    //minimum four characters
     get address(){return this._address;}
     set address(address)
     {
@@ -50,6 +54,7 @@ class ContactDetails
     }
 
     //get and set for city
+    //minimum four characters
     get city(){return this._city;}
     set city(city)
     {
@@ -61,6 +66,7 @@ class ContactDetails
     }
 
     //get and set for state
+    //minimum four characters
     get state(){return this._state;}
     set state(state)
     {
@@ -72,6 +78,7 @@ class ContactDetails
     }
 
     //get and set for zip
+    //pin code of form 789 987
     get zip(){return this._zip;}
     set zip(zip)
     {
@@ -83,6 +90,7 @@ class ContactDetails
     }
 
     //get and set for phoneNumber
+    //phone number should be of form 91 9650925666
     get phoneNumber(){return this._phoneNumber;}
     set phoneNumber(phoneNumber)
     {
@@ -94,6 +102,7 @@ class ContactDetails
     }
 
     // get and set for email
+    //ac.xyz@gmail.com.in .xyz-optional  .in-optional
     get email(){return this._email;}
     set email(email)
     {
@@ -114,7 +123,7 @@ class ContactDetails
 //creating an instance and giving contact details
 try
  {
-     //adding  contact details to array 
+     // uc3 adding  contact details to array 
     let contactDetails=new ContactDetails("Kretika","Arora","street","Faridabad","Haryana","121 001","91 9650925666","kretika@gmail.com");
     let contactDetailsArray = new Array();
     contactDetailsArray.push(contactDetails);
@@ -124,15 +133,19 @@ try
     //printing array before updating
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
 
-    //finding index using name
-    let check = contactDetailsArray.findIndex(contact=>contact.firstName=="Roma");
+    // uc4 finding index using name
+    let index = contactDetailsArray.findIndex(contact=>contact.firstName=="Roma");
     //updating the contact detail
-    contactDetailsArray[check].zip="121 003";
+    contactDetailsArray[index].zip="121 003";
 
     //displaying contacts after being updated
     console.log("contacts after being updated");
     contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
 
+    //uc5 Removes an element from an array at specified index
+    contactDetailsArray.splice(index,1);
+    console.log("contacts after being deleted");
+    contactDetailsArray.forEach((contact)=>console.log(contact.toString()));
  }
 catch(e)
  {
