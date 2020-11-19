@@ -98,7 +98,7 @@ class ContactDetails
     set email(email)
     {
         let emailRegex=RegExp("^([a-z0-9A-Z])+([.]?[a-z0-9A-Z]+)*[@]{1}[a-z0-9A-Z]+[.]{1}[a-zA-Z]{2,}([.]{1}[a-z]{2,})?$");
-        if(emailRegex.test(emailRegex))
+        if(emailRegex.test(email))
         this._email= email;
         else
         throw "Invalid email";
